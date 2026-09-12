@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Premium Festive Sweet Shop Color Palette */
+  --bg-color: #fffdf7; /* Warm cream background */
+  --surface-color: #ffffff;
+  --surface-border: #f0e6d2;
+  
+  --primary-color: #d91c5c; /* Logo exact crimson */
+  --primary-hover: #b5154b;
+  --secondary-color: #8e44ad; /* Royal Purple / Festive */
+  --gold-accent: #d4af37; /* Logo gold */
+  
+  --text-primary: #2c1e16; /* Dark chocolate/brown for text */
+  --text-secondary: #5a4b41;
+  --danger: #e74c3c;
+  --success: #27ae60;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+  
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  
+  --shadow-sm: 0 4px 12px rgba(217, 28, 92, 0.05);
+  --shadow-md: 0 8px 24px rgba(44, 30, 22, 0.08);
+  --shadow-hover: 0 12px 32px rgba(217, 28, 92, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCI+CjxwYXRoIGQ9Ik00MCAwbDIwIDIwLTIwIDIwLTIwLTIweiIgZmlsbD0iI2Q0YWYzNyIgZmlsbC1vcGFjaXR5PSIwLjAyIi8+Cjwvc3ZnPg==');
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Elegant Container Utility */
+.glass-panel {
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+/* Premium Buttons */
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(211, 84, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(211, 84, 0, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--surface-border);
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover, .btn-secondary.active {
+  background: #fdf5e6;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--surface-border);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1);
+}
+
+/* Product Card - Clean & Premium */
+.product-card {
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--gold-accent);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+  border-color: var(--primary-color);
+}
+
+/* Image Zoom Effect */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.08);
+}
+
+/* Header & Nav */
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
