@@ -460,7 +460,7 @@ export default function POS() {
       
       {completedSale && (
           <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '20px' }}>
-            <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', width: '400px', maxWidth: '100%', boxShadow: '0 10px 25px rgba(0,0,0,0.2)' }}>
+            <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', width: '400px', maxWidth: '100%', maxHeight: '90vh', overflowY: 'auto', boxShadow: '0 10px 25px rgba(0,0,0,0.2)' }}>
               
               {/* Bill to capture as PDF */}
               <div id="receipt-card" style={{ padding: '20px', border: '1px dashed #ccc', marginBottom: '24px', background: '#fff' }}>
