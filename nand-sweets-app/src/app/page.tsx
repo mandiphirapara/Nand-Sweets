@@ -51,9 +51,9 @@ export default function Home() {
   return (
     <>
       {/* Navigation Header */}
-      <nav className="header-nav" style={{ padding: '8px 40px' }}>
-        <img src="/NAND_LOGO_FINAL.svg" alt="Nand Sweets Logo" style={{ height: '90px' }} />
-        <img src="/NAME.svg" alt="Nand Sweets" style={{ height: '45px' }} />
+      <nav className="header-nav" style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
+        <img src="/NAND_LOGO_FINAL.svg" alt="Nand Sweets Logo" style={{ height: 'auto', maxHeight: '80px', width: 'auto', maxWidth: '20vw', minWidth: '60px' }} />
+        <img src="/NAME.svg" alt="Nand Sweets" style={{ height: 'auto', maxHeight: '40px', width: 'auto', maxWidth: '60vw', minWidth: '150px' }} />
       </nav>
 
       {/* Hero Section */}
@@ -64,8 +64,8 @@ export default function Home() {
         borderBottom: '1px solid var(--surface-border)',
         position: 'relative'
       }}>
-        <h1 style={{ fontSize: '3.5rem', marginBottom: '16px' }}>Handcrafted Pure Ghee Sweets</h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>
+        <h1 style={{ fontSize: 'clamp(2.2rem, 8vw, 3.5rem)', marginBottom: '16px' }}>Handcrafted Pure Ghee Sweets</h1>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 4vw, 1.2rem)', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>
           Experience the authentic taste of tradition. We prepare fresh, premium quality sweets and namkeen daily using 100% pure ingredients.
         </p>
       </header>
@@ -74,9 +74,9 @@ export default function Home() {
       <div style={{ padding: '60px 40px', maxWidth: '1280px', margin: '0 auto' }}>
         
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '24px' }}>Our Catalog</h2>
+          <h2 style={{ fontSize: 'clamp(2rem, 6vw, 2.5rem)', marginBottom: '24px' }}>Our Catalog</h2>
           
-          <div style={{ display: 'inline-flex', gap: '15px', overflowX: 'auto', padding: '10px 20px', maxWidth: '100%' }}>
+          <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', padding: '10px 4px', maxWidth: '100%', scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
             <button 
               className={`btn-secondary ${selectedCategory === null ? 'active' : ''}`} 
               onClick={() => setSelectedCategory(null)}
@@ -157,9 +157,9 @@ export default function Home() {
         <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '40px', justifyContent: 'space-between' }}>
           
           <div style={{ flex: '1 1 300px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <img src="/NAND_LOGO_FINAL.svg" alt="Nand Sweets Logo" style={{ height: '70px' }} />
-              <img src="/NAME.svg" alt="Nand Sweets" style={{ height: '28px' }} />
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+              <img src="/NAND_LOGO_FINAL.svg" alt="Nand Sweets Logo" style={{ height: 'auto', maxHeight: '60px', width: 'auto', maxWidth: '20vw', minWidth: '50px' }} />
+              <img src="/NAME.svg" alt="Nand Sweets" style={{ height: 'auto', maxHeight: '24px', width: 'auto', maxWidth: '60vw', minWidth: '120px' }} />
             </div>
             <p style={{ color: '#aaa', lineHeight: '1.6' }}>
               Handcrafted with love, bringing the authentic taste of tradition to your doorstep. 100% Pure Vegetarian & Premium Quality.

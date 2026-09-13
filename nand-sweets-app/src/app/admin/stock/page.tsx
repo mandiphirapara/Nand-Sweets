@@ -109,18 +109,18 @@ export default function ManageStock() {
 
       {selectedBranch && (
         <div className="glass-panel">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
             <div>
               <h2>Inventory List</h2>
               <p style={{ color: 'var(--text-secondary)' }}>Update current stock levels. Items below 10 are highlighted.</p>
             </div>
-            <div>
+            <div style={{ flex: '1 1 250px', maxWidth: '100%' }}>
               <input 
                 type="text" 
                 placeholder="Search items..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={{ padding: '10px 16px', borderRadius: '8px', border: '1px solid var(--surface-border)', minWidth: '250px' }}
+                style={{ padding: '10px 16px', borderRadius: '8px', border: '1px solid var(--surface-border)', width: '100%' }}
               />
             </div>
           </div>
@@ -137,20 +137,20 @@ export default function ManageStock() {
                 const isUpdating = updatingItemId === item.id;
                 
                 return (
-                  <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'var(--background-color)', borderRadius: '8px', border: '1px solid var(--surface-border)', borderLeft: isLowStock ? '4px solid var(--danger)' : '4px solid var(--success)' }}>
-                    <div style={{ flex: 1 }}>
+                  <div key={item.id} style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'var(--background-color)', borderRadius: '8px', border: '1px solid var(--surface-border)', borderLeft: isLowStock ? '4px solid var(--danger)' : '4px solid var(--success)' }}>
+                    <div style={{ flex: 1, minWidth: '200px' }}>
                       <span style={{ fontWeight: 'bold', fontSize: '1.1rem', display: 'block' }}>{item.name}</span>
                       {isLowStock && <span style={{ color: 'var(--danger)', fontSize: '0.8rem', fontWeight: 'bold' }}>Low Stock</span>}
                     </div>
                     
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', minWidth: '100px' }}>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Current Stock</span>
                         <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: isLowStock ? 'var(--danger)' : 'var(--text-primary)' }}>{currentQty}</span>
                       </div>
                       
                       {isUpdating ? (
-                        <div style={{ display: 'flex', gap: '8px' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                           <input 
                             type="number" 
                             min="0"

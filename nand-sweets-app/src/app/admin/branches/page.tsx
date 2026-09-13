@@ -139,7 +139,7 @@ export default function ManageBranches() {
         ) : (
           <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {branches.map(branch => (
-              <div key={branch.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'var(--background-color)', borderRadius: '8px', border: '1px solid var(--surface-border)' }}>
+              <div key={branch.id} style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'var(--background-color)', borderRadius: '8px', border: '1px solid var(--surface-border)' }}>
                 <div>
                   <span style={{ fontWeight: 'bold', fontSize: '1.1rem', display: 'block' }}>{branch.name}</span>
                   {branch.location && <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{branch.location}</span>}

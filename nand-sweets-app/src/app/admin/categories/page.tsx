@@ -70,7 +70,7 @@ export default function ManageCategories() {
       
       <div className="glass-panel" style={{ marginBottom: '40px' }}>
         <h2>Add New Category</h2>
-        <form onSubmit={handleAddCategory} style={{ display: 'flex', gap: '16px', marginTop: '16px' }}>
+        <form onSubmit={handleAddCategory} style={{ display: 'flex', gap: '16px', marginTop: '16px', flexWrap: 'wrap' }}>
           <input 
             type="text" 
             placeholder="Category Name (e.g. Milk Sweets)" 
@@ -94,7 +94,7 @@ export default function ManageCategories() {
         ) : (
           <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {categories.map(cat => (
-              <div key={cat.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'var(--background-color)', borderRadius: '8px', border: '1px solid var(--surface-border)' }}>
+              <div key={cat.id} style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: 'var(--background-color)', borderRadius: '8px', border: '1px solid var(--surface-border)' }}>
                 {editingId === cat.id ? (
                   <input 
                     type="text" 

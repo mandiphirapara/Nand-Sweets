@@ -307,12 +307,12 @@ export default function POS() {
 
   return (
     <>
-      <div style={{ display: 'flex', gap: '24px', height: 'calc(100vh - 80px)' }}>
+      <div className="pos-layout">
         
         {/* LEFT: PRODUCTS */}
         <div style={{ flex: '2', minHeight: 0, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1>Point of Sale</h1>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
+          <h1 style={{ fontSize: 'clamp(1.5rem, 6vw, 3rem)', margin: 0, whiteSpace: 'nowrap' }}>Point of Sale</h1>
           <select 
             value={selectedBranch} 
             onChange={(e) => setSelectedBranch(e.target.value)}
@@ -322,37 +322,38 @@ export default function POS() {
           </select>
         </div>
 
-          <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '10px' }}>
-            <button 
-              onClick={() => setSelectedCategory(null)} 
-              className={`btn-secondary ${!selectedCategory ? 'active' : ''}`}
-              style={{ whiteSpace: 'nowrap' }}
-            >
-              All Items
-            </button>
-            {categories.map(c => (
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap', paddingBottom: '16px' }}>
+            <div style={{ flex: '1 1 200px', minWidth: '200px' }}>
+              <input 
+                type="text"
+                placeholder="Search items..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{ width: '100%', padding: '8px 16px', borderRadius: '8px', border: '1px solid var(--surface-border)', fontSize: '0.9rem' }}
+              />
+            </div>
+            <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', flex: '2 1 300px', paddingBottom: '4px' }}>
               <button 
-                key={c.id} 
-                onClick={() => setSelectedCategory(c.id)} 
-                className={`btn-secondary ${selectedCategory === c.id ? 'active' : ''}`}
-                style={{ whiteSpace: 'nowrap' }}
+                onClick={() => setSelectedCategory(null)} 
+                className={`btn-secondary ${!selectedCategory ? 'active' : ''}`}
+                style={{ whiteSpace: 'nowrap', padding: '6px 12px', fontSize: '0.85rem' }}
               >
-                {c.name}
+                All Items
               </button>
-            ))}
+              {categories.map(c => (
+                <button 
+                  key={c.id} 
+                  onClick={() => setSelectedCategory(c.id)} 
+                  className={`btn-secondary ${selectedCategory === c.id ? 'active' : ''}`}
+                  style={{ whiteSpace: 'nowrap', padding: '6px 12px', fontSize: '0.85rem' }}
+                >
+                  {c.name}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div style={{ paddingBottom: '10px' }}>
-            <input 
-              type="text"
-              placeholder="Search items..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--surface-border)', fontSize: '1rem' }}
-            />
-          </div>
-
-          <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', alignContent: 'start', gap: '16px', overflowY: 'auto', paddingRight: '10px' }}>
+          <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', alignContent: 'start', gap: '12px', overflowY: 'auto', paddingRight: '10px' }}>
             {filteredItems.map(item => (
               <div 
                 key={item.id} 
@@ -360,25 +361,36 @@ export default function POS() {
                 style={{ 
                   display: 'flex',
                   flexDirection: 'column',
-                  minHeight: '200px',
                   background: 'var(--surface-color)', 
                   border: '1px solid var(--surface-border)', 
-                  borderRadius: '8px', 
+                  borderRadius: '6px', 
                   overflow: 'hidden',
                   cursor: 'pointer',
                   transition: 'transform 0.1s'
                 }}
-                onMouseOver={e => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseOver={e => e.currentTarget.style.transform = 'scale(1.03)'}
                 onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               >
                 {item.image_url ? (
-                  <img src={item.image_url} style={{ width: '100%', height: '120px', minHeight: '120px', objectFit: 'cover' }} alt={item.name} />
+                  <img src={item.image_url} style={{ width: '100%', height: '70px', minHeight: '70px', objectFit: 'cover' }} alt={item.name} />
                 ) : (
-                  <div style={{ width: '100%', height: '120px', background: '#eee' }}></div>
+                  <div style={{ width: '100%', height: '70px', background: '#eee' }}></div>
                 )}
-                <div style={{ padding: '12px', textAlign: 'center' }}>
-                  <h4 style={{ margin: '0 0 4px 0', fontSize: '1rem' }}>{item.name}</h4>
-                  <p style={{ margin: 0, color: 'var(--primary-color)', fontWeight: 'bold' }}>₹{item.price}</p>
+                <div style={{ padding: '8px', textAlign: 'center', overflow: 'hidden' }}>
+                  <h4 
+                    title={item.name}
+                    style={{ 
+                      margin: '0 0 4px 0', 
+                      fontSize: '0.85rem', 
+                      lineHeight: '1.2',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}
+                  >
+                    {item.name}
+                  </h4>
+                  <p style={{ margin: 0, color: 'var(--primary-color)', fontWeight: 'bold', fontSize: '0.8rem' }}>₹{item.price}</p>
                 </div>
               </div>
             ))}
@@ -386,7 +398,7 @@ export default function POS() {
         </div>
 
         {/* RIGHT: CART */}
-        <div className="glass-panel" style={{ flex: '1', minWidth: '350px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <div className="glass-panel" style={{ flex: '0 0 320px', minWidth: '280px', display: 'flex', flexDirection: 'column', height: '100%' }}>
           <h2 style={{ marginBottom: '16px', borderBottom: '1px solid var(--surface-border)', paddingBottom: '16px' }}>Current Bill</h2>
           
           <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '16px', paddingRight: '5px' }}>
@@ -395,8 +407,19 @@ export default function POS() {
             ) : (
               cart.map(item => (
                 <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ flex: 1 }}>
-                    <span style={{ fontWeight: 'bold', display: 'block' }}>{item.name}</span>
+                  <div style={{ flex: 1, overflow: 'hidden', paddingRight: '8px' }}>
+                    <span 
+                      title={item.name}
+                      style={{ 
+                        fontWeight: 'bold', 
+                        display: 'block', 
+                        whiteSpace: 'nowrap', 
+                        overflow: 'hidden', 
+                        textOverflow: 'ellipsis' 
+                      }}
+                    >
+                      {item.name}
+                    </span>
                     <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>₹{item.price}/Kg</span>
                   </div>
                   
